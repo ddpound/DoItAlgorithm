@@ -12,60 +12,43 @@ public class CokeAlgorithm {
         int n = 20;
 
         System.out.println(solution(a,b,n));
-
-        System.out.println("나머지 : "+remainSum);
+        //result(n,a,b);
     }
     public static int solution(int a, int b, int n) {
         int answer = 0;
-        int remain = 0;
+
+        return result(n,a,b, answer);
+    }
+
+    public static int result(int n , int a, int b, int answer){
 
 
-        result(n,a,b, remain, answer);
+        if(n >= a){
+            answer += (n / a) * b;
+            int remain = n % a;
+            n = (n / a) * b + remain;
 
-        answer = result;
+
+            result(n, a, b, answer);
+        }
 
         return answer;
     }
 
-    public static void result(int n , int a, int b, int remain, int answer){
+    public static void result(int n , int a, int b){
 
-        if (n+remainSum <= a) {
-            answer+=1;
-            System.out.println("마지막 : "+ answer);
+        int answer =0 ;
+        while (n >= a) {
 
-            result = answer;
-        } else {
+            answer += (n / a) * b;
+            int remain = n % a;
 
-            n = n/a;
-            remain = n&a;
-
-            answer += n;
-            remainSum += n%a;
-
-            System.out.println(answer);
-            result(n/a, a, b, remain ,answer);
+            n = (n / a) * b + remain;
         }
 
-    }
+        System.out.println("값"+answer);
 
-//    a b n
-//
-//   3 2 20
-//
-//        20/3 ---6...2
-//
-//    n = 6
-//
-//    n/a -> 6/3 --- 2...0
-//
-//            6+2,
-//            if 2+0 < a ---> return 6+2
-//            else ----> return 나머지의 합/a+(6+2)
-//    elif 나머지의합/a > a
-//
-//  if 나머지의 합 ==10
-//            10/a ==5
-//            5/a ==2....1
+    }
 
 
 
