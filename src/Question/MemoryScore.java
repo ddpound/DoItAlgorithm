@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class MemoryScore {
-
-
     public static void main(String[] args) {
         String[] name = {"may", "kein", "kain", "radi"};
         int[] yearning = {5, 10, 1, 3};
@@ -37,7 +35,6 @@ public class MemoryScore {
             for (String string : strings) {
 
                 if(nameYearning.containsKey(string)){
-
                     total += nameYearning.get(string);
                 }
 
