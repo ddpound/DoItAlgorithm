@@ -1,12 +1,9 @@
 package Question;
-
-
 /**
  *  콜라츠 문제 2023-10-04
  *  https://school.programmers.co.kr/learn/courses/30/lessons/12943
  *
  */
-
 public class CollatzQuestion {
     public static void main(String[] args) {
         int resultNum = solution( 626331);
@@ -28,11 +25,9 @@ public class CollatzQuestion {
                 }else{
                     num = num*3+1;
                 }
-                System.out.println(num);
                 answer++;
             }
         }
         return answer;
     }
-
 }
