@@ -1,18 +1,33 @@
 package Question;
 
+import java.util.ArrayList;
+
 public class SameNumberHate {
     public static void main(String[] args) {
 
     }
 
-    public static class Solution {
-        public int[] solution(int []arr) {
-            int[] answer = {};
 
-            // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-            System.out.println("Hello Java");
+    public static int[] solution(int []arr) {
+        ArrayList<Integer> copyList = new ArrayList<>();
 
-            return answer;
+        // 깃 푸시 테스트
+        int number = arr[0];
+        for (int j : arr) {
+            if (number < 0) {
+                number = j;
+            }
+            if (j != number) {
+                copyList.add(number);
+                number = -1;
+            }
         }
+        int[] answer = new int[copyList.size()];
+        for (int i = 0; i < copyList.size(); i++) {
+            answer[i] = copyList.get(i);
+        }
+
+        return answer;
     }
+
 }
