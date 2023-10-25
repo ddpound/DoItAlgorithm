@@ -4,9 +4,6 @@ import java.util.Random;
 
 // 퀵 정렬 알고리즘
 public class QuickSort {
-
-    //
-
     // 값 변경, static 이여서 따로 반환하지 않아도 적용된다.
     static void swap(int[]a, int idx1, int idx2){
         int i = a[idx1];
