@@ -10,22 +10,22 @@ import java.util.HashMap;
 public class NearestLetter {
 
     public static void main(String[] args) {
-        System.out.println(solution("foobar"));
+        System.out.print(solution("foobar"));
     }
 
     public static int[] solution(String s) {
-        HashMap<Character, Character> stack = new HashMap<>();
+        HashMap<Character, Integer> stack = new HashMap<>();
         ArrayList<Integer> resultList = new ArrayList<Integer>();
 
-        for (char c : s.toCharArray()
-             ) {
+        for (int i = 0; i < s.length(); i++) {
             if(stack.isEmpty()){
-                stack.put(c,c);
+                stack.put(s.charAt(i),i);
                 resultList.add(-1);
-            }else if(stack.containsKey(c)){
-                resultList.add(2);
+            }else if(stack.containsKey(s.charAt(i))){
+                resultList.add(i-stack.get(s.charAt(i)));
+                stack.put(s.charAt(i), i);
             }else{
-                stack.put(c,c);
+                stack.put(s.charAt(i),i);
                 resultList.add(-1);
             }
         }
