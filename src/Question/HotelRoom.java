@@ -1,13 +1,9 @@
 package Question;
 
-
-import java.lang.reflect.Array;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 // 프로그래머스 호텔대실
 public class HotelRoom {
