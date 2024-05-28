@@ -1,7 +1,5 @@
 package Question;
 
-import java.util.Stack;
-
 public class PaintOver {
 
     public static void main(String[] args) {
@@ -11,11 +9,8 @@ public class PaintOver {
 
     public static int solution(int n, int m, int[] section) {
         int answer = 0;
-        int sum = 0;
-        int lastIndexNumber = 0;
-        Stack<Integer> stack = new Stack<>();
-
         int passNumber = 0;
+
         for(int i : section){
             if(passNumber == 0){
                 passNumber = (i+m) - 1;
