@@ -75,8 +75,13 @@ public class LandEat {
             }
 
         }
-        System.out.println(Arrays.deepToString(newLand));
-        int answer = 0;
+        for (int[] i : newLand){
+            System.out.print("[ ");
+            for (int j : i){
+                System.out.print(j + ", ");
+            }
+            System.out.println("]");
+        }
 
         int resultMax = 0;
         for (int i = 0; i < newLand[newLand.length-1].length; i++) {
