@@ -98,7 +98,7 @@ public class Tournament {
 
     // 해설지의 도움을 받음
     // 문제의 이해력 부족...
-    // 시간을 더 들였으면 됐을지도..
+    // 시간을 더 들였으면 풀었을 것 같으나 많은 시간이 걸렸을 것 같음
     public static void solution(){
         Scanner sc = new Scanner(System.in);
         int n=sc.nextInt();

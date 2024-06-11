@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 // 백준 Stick
 // 막대기
-
 public class Stick {
 
 
