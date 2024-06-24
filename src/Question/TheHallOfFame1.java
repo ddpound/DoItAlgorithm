@@ -39,18 +39,17 @@ public class TheHallOfFame1 {
             }else {
                 while (!resultStack.isEmpty()){
                     int tempInt = resultStack.pop();
-
-                    if (tempInt > i && resultStack.size() < k) {
+                    if(tempInt < i){
+                        tempStack.push(tempInt);
+                    } else {
                         resultStack.push(tempInt);
-                        resultStack.push(i);
-                        break;
-                    }else{
-                        if(tempInt < i){
-                            tempStack.push(tempInt);
-                        } else{
-                            resultStack.push(tempInt);
-                            break;
+                        if(resultStack.size() < k) {
+                            resultStack.push(i);
+                            while (!tempStack.isEmpty()){
+                                resultStack.push(tempStack.pop());
+                            }
                         }
+                        break;
                     }
                 }
 
@@ -65,7 +64,7 @@ public class TheHallOfFame1 {
             if(resultStack.size() > k) {
                 resultStack.pop();
             }
-            System.out.println(resultStack);
+            //System.out.println(resultStack);
             result[index] = resultStack.peek(); // pop 이 아닌 맨 마지막 값만 참조
             index++;
         }
