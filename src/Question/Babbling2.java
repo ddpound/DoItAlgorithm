@@ -15,47 +15,44 @@ package Question;
 public class Babbling2 {
 
     public static void main(String[] args) {
-        System.out.println(solution(new String[]{"ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"}));
+        //System.out.println("result : " + solution(new String[]{"ayaye"}));
+        System.out.println("result : " + solution(new String[]{"ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"}));
+        System.out.println("result : " + solution(new String[]{"aya", "yee", "u", "maa"}));
+        //System.out.println("result : " + solution(new String[]{"ayayeaa"}));
 
     }
 
     public static int solution(String[] babbling) {
-        String aya = "aya"; // 3
-        String ye = "ye"; // 2
-        String woo = "woo"; // 3
-        String ma = "ma"; // 2
-
         int answer = 0;
+
         for (String baby : babbling){
+            boolean flag = true;
+            String memory = ""; // 중복 방지를 위한 문자열
 
             // 해당 문자열 길이만큼 반복
             for (int i = 0; i < baby.length();) {
-                System.out.println(i + "where");
-                if(baby.charAt(i) == 'a' &&  baby.substring(i, i+3).equals("aya")) {
-                    System.out.println("a");
+
+                if(baby.charAt(i) == 'a' && !memory.equals("a") && i+3 <= baby.length() &&  baby.substring(i, i+3).equals("aya")) {
+                    memory = "a";
                     i += 3;
-                    System.out.println(i);
-                }else if(baby.charAt(i) == 'y' &&  baby.substring(i, i+2).equals("ye")) {
-                    System.out.println("y");
+                }else if(baby.charAt(i) == 'y' && !memory.equals("y") && i+2 <= baby.length() &&  baby.substring(i, i+2).equals("ye")) {
+                    memory = "y";
                     i += 2;
-                    System.out.println(i);
-                }else if(baby.charAt(i) == 'w' && baby.substring(i, i+3).equals("woo")){
+                }else if(baby.charAt(i) == 'w' && !memory.equals("w") && i+3 <= baby.length() && baby.substring(i, i+3).equals("woo")){
+                    memory = "w";
                     i += 3;
-                }else if(baby.charAt(i) == 'm' && baby.substring(i, i+2).equals("ma")){
+                }else if(baby.charAt(i) == 'm' && !memory.equals("m") && i+2 <= baby.length() && baby.substring(i, i+2).equals("ma")){
+                    memory = "m";
                     i += 2;
                 }else{
-                    // 모든 상황이 아니라면 브레이크하고 끝내자
+                    // 모든 상황이 해당없으면 바로 break 걸면됨
+                    flag = false;
                     break;
                 }
-                // 만약 중간에 걸리면 break 끝까지 도달 하면 값 ++
-                if(i == baby.length()-1) answer++;
             }
+            //System.out.println(baby + " :: :: " + flag);
+            if(flag) answer++;
         }
-
-
-
-
-
 
         return answer;
     }
