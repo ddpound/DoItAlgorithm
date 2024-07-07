@@ -2,8 +2,19 @@ package Question;
 
 import java.util.ArrayList;
 
-// 더맵게
+// 프로그래머스 더맵게
+// 수정 날짜 2024-06-29
 // https://school.programmers.co.kr/learn/courses/30/lessons/42626
+
+/**
+ *
+ * 아이디어
+ * 1. 최종적으로 섞인 값이 K 보다 크면 Heap에 담아두고 필요할때 써먹음
+ * 2. 정렬된리스트에서 반복문이 끝나는 조건은 k 이상인 값을 만나면 break됨
+ * 3. 스코빌 공식을 써도 k를 넘지 못하는 값들을 넣는 heap 생성 거기에 담아둠
+ * 4. 본 list의 값을 꺼낼때 k보다 작으면 다음 값과 heap 저장된 넘지못한 값과 비교
+ * 5.
+ * */
 public class MoreSpicy {
 
     public static void main(String[] args) {
@@ -14,30 +25,10 @@ public class MoreSpicy {
         int answer = 0;
         double sumScovile = 0;
 
+        // 정렬
         quickSort(scoville,0,scoville.length-1);
-        ArrayList<Double> list = new ArrayList<Double>();
 
-        for (int i = 0; i < scoville.length; i++) {
-            list.add((double) i);
-        }
 
-        ArrayList<Double> list2 = new ArrayList<Double>();
-
-        for (int i = 0; i < list.size(); i++) {
-            quickSort(scoville,0,scoville.length-1);
-            sumScovile = scoville[i] + (scoville[i+1] * 2);
-
-            if(sumScovile >= K){
-                answer++;
-                break;
-            }
-
-            answer++;
-
-            if(i == scoville.length-1){
-                answer = -1;
-            }
-        }
 
 
         return answer;
